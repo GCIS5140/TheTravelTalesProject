@@ -1,42 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    .image-container {
-      width: 300px; /* Adjust this value as needed */
-      height: auto; /* This keeps the aspect ratio */
-      overflow: hidden;
-      position: relative;
-    }
-
-    .image-container img {
-      position: absolute;
-      animation: moveImages 10s linear infinite;
-    }
-
-    @keyframes moveImages {
-      0%, 100% {
-        left: 0;
+   <style>
+      #background-div {
+         background-position: center;
+         background-size: cover;
+         background-image:
+         url("homepageimages/beach_picture.jpg");
+         display: flex;
+         height: 300px;
+         width: 600px;
+         transition: background 2s linear;
       }
-      25% {
-        left: 0;
-      }
-      50% {
-        left: -100%;
-      }
-      75% {
-        left: -100%;
-      }
-    }
-  </style>
+   </style>
 </head>
 <body>
-  <div class="image-container">
-    <img src="homepageimages/beach_picture.jpg" alt="Image 1">
-    <img src="homepageimages/beach_picture.jpg" alt="Image 2">
-    <img src="homepageimages/beach_picture.jpg" alt="Image 3">
-    <img src="homepageimages/beach_picture.jpg" alt="Image 4">
-  </div>
+   <h3>Using the <i> CSS transition </i> to add fadding effect in image transition</h3>
+   <div id = "background-div"></div>
+   <script>
+      let allImages = [
+         "homepageimages/beach_picture.jpg",
+         "homepageimages/beach_picture.jpg",
+         "homepageimages/beach_picture.jpg",
+      ]
+      const imageDiv = document.getElementById("background-div");
+      setInterval(FadeImage, 3000);
+      let current = 0;
+      function FadeImage() {
+         current++;
+         if (current >= allImages.length) current = 0;
+         imageDiv.style.backgroundImage = `url(${allImages[current]})`;
+      }
+   </script>
 </body>
 </html>
-
