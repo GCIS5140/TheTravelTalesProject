@@ -2,40 +2,41 @@
 <html>
 <head>
   <style>
-    /* Define the animation */
-    @keyframes moveImages {
-      0% {
-        left: 0;
-        background-image: url("homepageimages/beach_picture.jpg");
-      }
-      25% {
-        left: 25%;
-        background-image: url("homepageimages/beach_picture.jpg");
-      }
-      50% {
-        left: 50%;
-        background-image: url("homepageimages/beach_picture.jpg");
-      }
-      75% {
-        left: 75%;
-        background-image: url("homepageimages/beach_picture.jpg");
-      }
-      100% {
-        left: 0;
-        background-image: url("homepageimages/beach_picture.jpg");
-      }
-    }
-
-    /* Apply the animation to a container */
     .image-container {
-      position: relative;
       width: 300px; /* Adjust this value as needed */
       height: auto; /* This keeps the aspect ratio */
+      overflow: hidden;
+      position: relative;
+    }
+
+    .image-container img {
+      position: absolute;
       animation: moveImages 10s linear infinite;
+    }
+
+    @keyframes moveImages {
+      0%, 100% {
+        left: 0;
+      }
+      25% {
+        left: 0;
+      }
+      50% {
+        left: -100%;
+      }
+      75% {
+        left: -100%;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="image-container"></div>
+  <div class="image-container">
+    <img src="homepageimages/beach_picture.jpg" alt="Image 1">
+    <img src="homepageimages/beach_picture.jpg" alt="Image 2">
+    <img src="homepageimages/beach_picture.jpg" alt="Image 3">
+    <img src="homepageimages/beach_picture.jpg" alt="Image 4">
+  </div>
 </body>
 </html>
+
