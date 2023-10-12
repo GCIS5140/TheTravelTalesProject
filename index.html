@@ -3,23 +3,39 @@
 <head>
   <style>
     /* Define the animation */
-    @keyframes moveImage {
-      0% { left: 0; }
-      50% { left: 50%; }
-      100% { left: 0; }
+    @keyframes moveImages {
+      0% {
+        left: 0;
+        background-image: url("homepageimages/beach_picture.jpg");
+      }
+      25% {
+        left: 25%;
+        background-image: url("homepageimages/beach_picture.jpg");
+      }
+      50% {
+        left: 50%;
+        background-image: url("homepageimages/beach_picture.jpg");
+      }
+      75% {
+        left: 75%;
+        background-image: url("homepageimages/beach_picture.jpg");
+      }
+      100% {
+        left: 0;
+        background-image: url("homepageimages/beach_picture.jpg");
+      }
     }
 
-    /* Apply the animation to the image */
-    .moving-image {
+    /* Apply the animation to a container */
+    .image-container {
       position: relative;
-      animation: moveImage 5s linear infinite;
-      /* Set the desired dimensions */
       width: 300px; /* Adjust this value as needed */
       height: auto; /* This keeps the aspect ratio */
+      animation: moveImages 10s linear infinite;
     }
   </style>
 </head>
 <body>
-  <img src="homepageimages/beach_picture.jpg" class="moving-image" alt="Moving Image">
+  <div class="image-container"></div>
 </body>
 </html>
