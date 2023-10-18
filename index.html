@@ -173,7 +173,7 @@
 	  <i class="fa fa-solid fa-beat fa-plane w3-xxlarge" style="color:blue;"></i>
       <p><b>PLAN</b></p>
     </a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-black">
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-black" onclick="toggleContactForm()">
       <i class="fa fa-solid fa-beat fa-address-card w3-xxlarge" style="color:blue;"></i>
       <p><b>CONTACT</b></p>
     </a>
@@ -287,9 +287,13 @@
       if (registrationForm.style.display === "block") {
         registrationForm.style.display = "none";
         main.style.display = "block";
+	contact.style.display = "none";
+	footer.style.display = "none";
       } else {
         registrationForm.style.display = "block";
         main.style.display = "none";
+	contact.style.display = "none";
+	footer.style.display = "none";	      
       }
     }
   </script>
@@ -306,7 +310,23 @@
         function NewTab() {
             window.open(
             "http://escapesanywhere.com/", "_blank");
-        }	  
+        }
+    // Function to show/hide the Contact Section and open the main division
+    function toggleContactForm() {
+      var contactForm = document.getElementById("contact");
+      var main = document.getElementById("main");
+      if (contactForm.style.display === "block") {
+        registrationForm.style.display = "none";
+        main.style.display = "block";
+	contact.style.display = "none";
+	footer.style.display = "none";
+      } else {
+        contactForm.style.display = "block";
+        main.style.display = "none";
+	contact.style.display = "none";
+	footer.style.display = "none";	      
+      }
+    }	  
   </script>
 </body>
 </html>
