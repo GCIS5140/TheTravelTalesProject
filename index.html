@@ -284,16 +284,18 @@
 	  console.log("toggleLoginForm function called");
       var registrationForm = document.getElementById("registration-form");
       var main = document.getElementById("main");
+      var contactForm = document.getElementById("contact");	    
+      var footerForm = document.getElementById("footer");
       if (registrationForm.style.display === "block") {
         registrationForm.style.display = "none";
         main.style.display = "block";
-	contact.style.display = "none";
-	footer.style.display = "none";
+	contactForm.style.display = "none";
+	footerForm.style.display = "none";
       } else {
         registrationForm.style.display = "block";
         main.style.display = "none";
-	contact.style.display = "none";
-	footer.style.display = "none";	      
+	contactForm.style.display = "none";
+	footerForm.style.display = "none";	      
       }
     }
   </script>
@@ -302,8 +304,11 @@
     function showMainDivision() {
       var registrationForm = document.getElementById("registration-form");
       var main = document.getElementById("main");
-
+      var contactForm = document.getElementById("contact");	    
+      var footerForm = document.getElementById("footer");
       registrationForm.style.display = "none";
+      contactForm.style.display = "none";
+      footerForm.style.display = "none";	    
       main.style.display = "block";
     }
 	// Function to link to Mavericks tab
@@ -315,16 +320,18 @@
     function toggleContactForm() {
       var contactForm = document.getElementById("contact");
       var main = document.getElementById("main");
+      var registrationForm = document.getElementById("registration-form");
+      var footerForm = document.getElementById("footer");	    
       if (contactForm.style.display === "block") {
         registrationForm.style.display = "none";
         main.style.display = "block";
-	contact.style.display = "none";
+	contactForm.style.display = "none";
 	footer.style.display = "none";
       } else {
         contactForm.style.display = "block";
         main.style.display = "none";
-	contact.style.display = "none";
-	footer.style.display = "none";	      
+	registrationForm.style.display = "none";
+	footerForm.style.display = "block";	      
       }
     }	  
   </script>
