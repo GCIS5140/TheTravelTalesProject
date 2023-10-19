@@ -181,7 +181,7 @@
   </div>
 
   <!-- Page Content -->
-  <div class="w3-padding-large" id=bgvideo_main>
+  <div class="w3-padding-large" id="bgvideo_main">
      <video style="object-fit: cover;width: 100vw;height: 100vh;position:fixed;top: 0; left: 0;" src="homepagevideos/video1.mp4" autoplay loop playsinline muted>
      Your browser does not support the video tag.
      </video>
@@ -261,6 +261,7 @@
     function toggleLoginForm() {
 	  console.log("toggleLoginForm function called");
       var registrationForm = document.getElementById("registration-form");
+      var bgvideomainForm = document.getElementById("bgvideo_main");
       var main = document.getElementById("main");
       var contactForm = document.getElementById("contact");	    
       var footerForm = document.getElementById("footer");
@@ -269,11 +270,13 @@
         main.style.display = "block";
 	contactForm.style.display = "none";
 	footerForm.style.display = "none";
+	bgvideomainForm.style.display = "none";
       } else {
         registrationForm.style.display = "block";
         main.style.display = "none";
 	contactForm.style.display = "none";
-	footerForm.style.display = "none";	      
+	footerForm.style.display = "none";
+	bgvideomainForm.style.display = "none";
       }
     }
   </script>
@@ -281,6 +284,7 @@
     // Function to show the main division and hide the registration form
     function showMainDivision() {
       var registrationForm = document.getElementById("registration-form");
+      var bgvideomainForm = document.getElementById("bgvideo_main");
       var main = document.getElementById("main");
       var contactForm = document.getElementById("contact");	    
       var footerForm = document.getElementById("footer");
@@ -288,6 +292,7 @@
       contactForm.style.display = "none";
       footerForm.style.display = "none";	    
       main.style.display = "block";
+      bgvideomainForm.style.display = "none";
     }
 	// Function to link to Mavericks tab
         function NewTab() {
@@ -297,6 +302,7 @@
     // Function to show/hide the Contact Section and open the main division
     function toggleContactForm() {
       var contactForm = document.getElementById("contact");
+      var bgvideomainForm = document.getElementById("bgvideo_main");
       var main = document.getElementById("main");
       var registrationForm = document.getElementById("registration-form");
       var footerForm = document.getElementById("footer");	    
@@ -305,11 +311,13 @@
         main.style.display = "block";
 	contactForm.style.display = "none";
 	footer.style.display = "none";
+	bgvideomainForm.style.display = "none";
       } else {
         contactForm.style.display = "block";
         main.style.display = "none";
 	registrationForm.style.display = "none";
-	footerForm.style.display = "block";	      
+	footerForm.style.display = "block";
+	bgvideomainForm.style.display = "none";
       }
     }	  
   </script>
