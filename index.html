@@ -1,358 +1,261 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <title>The Travel Tales Project</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: "Montserrat", sans-serif;
-        background-image: url('homepageimages/bg_image.jpg');
-        height: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .w3-row-padding img {
-        margin-bottom: 12px;
-    }
-
-    /* Set the width of the sidebar to 120px */
-
-    .w3-sidebar {
-        width: 120px;
-        background: #222;
-    }
-
-    /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-
-    #main {
-        margin-left: 120px;
-    }
-
-    /* Remove margins from "page content" on small screens */
-
-    @media only screen and (max-width: 600px) {
-        #main {
-            margin-left: 0;
-        }
-    }
-
-    /* Style the image grid */
-
-    .image-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        /* Create 4 columns with equal width */
-        gap: 10px;
-        /* Add some gap between grid items */
-    }
-
-    /* Style each grid item (images and videos) */
-
-    .image-grid img,
-    .image-grid video {
-        width: 100%;
-        height: auto;
-        /* Maintain the aspect ratio of images and videos */
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: cover;
-        /* Fit the content within the item, cropping if necessary */
-        border: 1px solid #ddd;
-        /* Add a border for separation (optional) */
-    }
-
-    /* Set a fixed height for grid items to prevent video overlap */
-
-    .image-grid img,
-    .image-grid video {
-        height: 200px;
-        /* Adjust the height as needed */
-    }
-
-    /* Style for the login form */
-
-    .login-form {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 270px;
-        background: rgba(255, 255, 255, 0.95);
-        padding: 50px 50px 10px 50px;
-        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    /* Additional styles for form elements */
-
-    .login-form input {
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 6px;
-        outline: none;
-    }
-
-    .login-form a {
-        color: #4285f4;
-        text-decoration: none;
-        margin-top: 30px;
-        font-size: 14px;
-    }
-
-    .login-form button {
-        display: block;
-        border-radius: 5px;
-        height: 30px;
-        width: 65px;
-        background-color: #4285f4;
-        border: none;
-        color: #fff;
-        text-align: center;
-        font-size: 12px;
-        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
-        margin-top: 30px;
-    }
-
-    /* Styling for the foot container */
-
-    .foot-container {
-        width: 90vw;
-        height: 30px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    /* Styling for the foot image */
-
-    .foot {
-        width: 200px;
-        height: 100px;
-        font-size: 26px;
-        text-align: center;
-        position: absolute;
-        bottom: 10;
-        background-size: cover;
-        /* Adjust this as needed */
-        animation: walk 20s linear infinite;
-        transition: transform 0.2s ease;
-        /* Add a transition effect */
-    }
-
-    @keyframes walk {
-        0% {
-            transform: translateX(0);
-        }
-        50% {
-            transform: translateX(calc(100vw - 50px));
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-
-    .foot-container:hover .foot {
-        transform: translateX(calc(100vw - 50px));
-        /* Move the foot to the right edge upon hover */
-    }
-    </style>
-</head>
-
-<body class="w3-white">
-    <!-- Icon Bar (Sidebar - hidden on small screens) -->
-    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" style="position:relative;">
-        <!-- Avatar image in the top left corner -->
-        <a class="w3-bar-item w3-padding-large w3-light-blue">
-            <p><b></b></p>
-        </a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-light-blue w3-hover-black" onclick="showMainDivision()">
-      <i class="fa fa-solid fa-beat-fade fa-home w3-xxlarge" style="color:#0818A8;"></i>
-      <p><b>HOME</b></p>
-    </a>
-        <a href="#join" class="w3-bar-item w3-button w3-padding-large w3-light-blue w3-hover-black" onclick="toggleLoginForm()">
-      <i class="fa fa-solid fa-beat-fade fa-sign-in w3-xxlarge" style="color:#0818A8;"></i>
-      <p><b>LOGIN/SIGN UP</b></p>
-    </a>
-        <a href="#tales" class="w3-bar-item w3-button w3-padding-large w3-light-blue w3-hover-black">
-      <i class="fa fa-solid fa-beat-fade fa-eye w3-xxlarge" style="color:#0818A8;"></i>
-      <p><b>EXPLORE</b></p>
-    </a>
-        <a href="#travel" class="w3-bar-item w3-button w3-padding-large w3-light-blue w3-hover-black" onclick="NewTab()">
-	  <i class="fa fa-solid fa-beat-fade fa-plane w3-xxlarge" style="color:#0818A8;"></i>
-      <p><b>PLAN</b></p>
-    </a>
-        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-light-blue w3-hover-black" onclick="toggleContactForm()">
-      <i class="fa fa-solid fa-beat-fade fa-address-card w3-xxlarge" style="color:#0818A8;"></i>
-      <p><b>CONTACT</b></p>
-    </a>
-        <a class="w3-bar-item w3-padding-large w3-light-blue">
-            <p><b></b></p>
-        </a>
-    </nav>
-
-    <!-- Navbar on small screens (Hidden on medium and large screens) -->
-    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-        <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-            <a href="#" class="w3-bar-item w3-button" style="width:20% !important">HOME</a>
-            <a href="#about" class="w3-bar-item w3-button" style="width:20% !important">JOIN</a>
-            <!-- Add more navigation links as needed -->
-        </div>
-    </div>
-
-    <!-- Page Content -->
-    <div class="w3-padding-large" id="bgvideo_main">
-        <video style="object-fit: cover;width: 100vw;height: 100vh;position:fixed;top: 0; left: 0;" src="homepagevideos/video1.mp4" autoplay loop playsinline muted>
-     Your browser does not support the video tag.
-     </video>
-    </div>
-    <div class="w3-padding-large" id="main">
-        <!-- Header/Home -->
-        <header class="w3-center w3-white" id="home">
-            <!-- <h1 class="w3-jumbo"><span class="w3-hide-small"> 	  
-      <i class="fa fa-globe fa-spin fa-3x" style="color:blue;" aria-hidden="true"></i>
-      </h1> -->
-        </header>
-    </div>
-    <!-- User Registration Form -->
-    <div id="registration-form" style="display: none;" class="login-form">
-        <h1 class="title">Login or Sign Up</h1>
-        <form action="" method="POST" id="loginform">
-            <div class="animate-label">
-                <input type="text" id="username" required autocomplete="username">
-                <label for="username">Email or Phone</label>
-                <line></line>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Include Font Awesome (you can also use a CDN) -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Over+the+Rainbow&effect=neon|outline|emboss|shadow-multiple">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+      <link rel="stylesheet" type="text/css" href="/styles.css">
+      <title>The Travel Tales</title>
+   </head>
+   <body style="background-color: #87CEEB;">
+      <!-- Video Container -->
+      <div id="video-container" style="background:#87CEEB;">
+         <br><br>
+         <p class="font-effect-neon" style="font-style:Over the Rainbow;text-align:center;">The Travel Tales</p>
+         <br><br>
+         <video id="fullscreen-video" autoplay muted loop>
+            <source src="homepagevideos/video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+         </video>
+      </div>
+      <!-- Use a Font Awesome icon for the button -->
+      <button id="menu-button">
+      <i id="menu-icon" class="fas fa-bars"></i>
+      </button>
+      <div id="nav-bar">
+         <ul>
+            <li>
+               <a href="#" class="w3-bar-item w3-button w3-padding-medium w3-light-blue w3-hover-white">
+                  <i class="fas fa-home"> HOME</i>
+                  <p><b></b></p>
+               </a>
+            </li>
+            <li>
+               <a href="#" class="w3-bar-item w3-button w3-padding-medium w3-light-blue w3-hover-white">
+                  <i class="fas fa-sign-in-alt"> Login/Sign Up</i>
+                  <p><b></b></p>
+               </a>
+            </li>
+            <li>
+               <a href="#" class="w3-bar-item w3-button w3-padding-medium w3-light-blue w3-hover-white">
+                  <i class="fas fa-blog"> View Blogs</i>
+                  <p><b></b></p>
+               </a>
+            </li>
+            <li>
+               <a href="#" class="w3-bar-item w3-button w3-padding-medium w3-light-blue w3-hover-white">
+                  <i class="fas fa-pen-fancy"> Tell a Tale</i>
+                  <p><b></b></p>
+               </a>
+            </li>
+            <li>
+               <a href="#" class="w3-bar-item w3-button w3-padding-medium w3-light-blue w3-hover-white">
+                  <i class="fas fa-users"> Find Companions</i>
+                  <p><b></b></p>
+               </a>
+            </li>
+            <li>
+               <a href="#" class="w3-bar-item w3-button w3-padding-medium w3-light-blue w3-hover-white">
+                  <i class="fas fa-calendar"> Plan</i>
+                  <p><b></b></p>
+               </a>
+            </li>
+            <li>
+               <a href="#" class="w3-bar-item w3-button w3-padding-medium w3-light-blue w3-hover-white">
+                  <i class="fas fa-bookmark"> Resources</i>
+                  <p><b></b></p>
+               </a>
+            </li>
+            <li>
+               <a href="#" class="w3-bar-item w3-button w3-padding-medium w3-light-blue w3-hover-white">
+                  <i class="fas fa-envelope"> Contact Us</i>
+                  <p><b></b></p>
+               </a>
+            </li>
+         </ul>
+         <br><br>
+         <p class="font-effect-neon" style="font-style:Over the Rainbow;">The</p>
+         <br><br>
+         <p class="font-effect-neon" style="font-style:Over the Rainbow;">Travel</p>
+         <br><br>
+         <p class="font-effect-neon" style="font-style:Over the Rainbow;">Tales !</p>
+      </div>
+      <div class="login-container" style="display: none;">
+         <h2>Login / Sign Up</h2>
+         <form id="login-form">
+            <input type="text" name="username" id="username" placeholder="Username" required><br>
+            <input type="password" name="password" id="password" placeholder="Password" required><br>
+            <button class="btn" type="button" id="login-button"><i class="fas fa-sign-in-alt"></i> Log In</button>
+            <button class="btn" type="button" id="signup-button"><i class="fas fa-user-plus"></i> Sign Up</button>
+         </form>
+         <p class="success-message" id="success-message" style="display: none;">Logged in successfully!</p>
+         <p class="success-message" id="signup-success-message" style="display: none;">Account Created Successfully. Happy Blogging !!!</p>
+         <p class="redirect-message" id="redirect-message" style="display: none;">Redirecting in 3 seconds...</p>
+      </div>
+      <div class="redirect-div" style="display: none;">
+         <h2>Redirected Div</h2>
+         <p>This is the redirected content.</p>
+      </div>
+      <!-- Slick Slider Container -->
+      <div id="slick-slider-container" style="display: none;">
+         <div class="slider">
+            <div class="slide">
+               <img src="homepageimages/mountain_picture.jpg" alt="Image 1">
+               <div class="overlay">
+                  <div class="overlay-content">
+                     <p>Additional Content for Image 1</p>
+                     <span class="close-button" onclick="closeOverlay(this)">×</span>
+                  </div>
+               </div>
             </div>
-            <div class="animate-label">
-                <input type="password" id="password" required autocomplete="current-password">
-                <label for="password">Password</label>
-                <line></line>
+            <div class="slide">
+               <img src="homepageimages/mountain_picture.jpg" alt="Image 2">
+               <div class="overlay">
+                  <div class="overlay-content">
+                     <p>Additional Content for Image 2</p>
+                     <span class="close-button" onclick="closeOverlay(this)">×</span>
+                  </div>
+               </div>
             </div>
-            <br>
-            <input type="hidden" name="lable_username" value="Username">
-            <input type="hidden" name="lable_username" value="Username">
-            <input type="submit" value="Submit">
-            <input type="submit" value="Sign Up">
-            <a href="">Forget Password?</a>
-            <div class="flex">
-                <a href="">More Options</a>
+            <div class="slide">
+               <img src="homepageimages/mountain_picture.jpg" alt="Image 3">
+               <div class="overlay">
+                  <div class="overlay-content">
+                     <p>Additional Content for Image 3</p>
+                     <span class="close-button" onclick="closeOverlay(this)">×</span>
+                  </div>
+               </div>
             </div>
-        </form>
-    </div>
-    <!-- Contact Section -->
-    <div class="w3-padding-large w3-content w3-white w3-text-black" id="contact" style="display: none;">
-        <h2 class="w3-text-black">Contact Us</h2>
-        <hr style="width:200px" class="w3-opacity">
-
-        <div class="w3-section">
-            <p><i class="fa fa-map-marker fa-fw w3-text-black w3-xxlarge w3-margin-right"></i> Chicago, US</p>
-            <p><i class="fa fa-phone fa-fw w3-text-black w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-            <p><i class="fa fa-envelope fa-fw w3-text-black w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
-        </div><br>
-        <p>Let's get in touch. Send me a message:</p>
-
-        <form action="/action_page.php" target="_blank">
-            <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-            <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-            <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
-            <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
-            <p>
-                <button class="w3-button w3-grey w3-padding-large" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-            </p>
-        </form>
-        <!-- End Contact Section -->
-    </div>
-
-    <!-- Footer -->
-    <footer class="w3-content w3-padding-large w3-white w3-xlarge" id="footer" style="display: none;">
-        <i class="fa-brands fa-facebook fa-fade w3-hover-opacity"></i>
-        <i class="fa-brands fa-instagram fa-fade w3-hover-opacity"></i>
-        <i class="fa-brands fa-snapchat fa-fade w3-hover-opacity"></i>
-        <i class="fa-brands fa-pinterest-p fa-fade w3-hover-opacity"></i>
-        <i class="fa-brands fa-twitter fa-fade w3-hover-opacity"></i>
-        <i class="fa-brands fa-linkedin fa-fade w3-hover-opacity"></i>
-        <p class="w3-medium">Powered by <a href="https://gcis5140.github.io/TheTravelTalesProject/" target="_blank" class="w3-hover-text-green">The Travel Tales</a></p>
-        <!-- End footer -->
-    </footer>
-    <script>
-    // Function to show/hide the registration form and open the main division
-    function toggleLoginForm() {
-        console.log("toggleLoginForm function called");
-        var registrationForm = document.getElementById("registration-form");
-        var bgvideomainForm = document.getElementById("bgvideo_main");
-        var main = document.getElementById("main");
-        var contactForm = document.getElementById("contact");
-        var footerForm = document.getElementById("footer");
-        if (registrationForm.style.display === "block") {
-            registrationForm.style.display = "none";
-            main.style.display = "block";
-            contactForm.style.display = "none";
-            footerForm.style.display = "none";
-            bgvideomainForm.style.display = "none";
-        } else {
-            registrationForm.style.display = "block";
-            main.style.display = "none";
-            contactForm.style.display = "none";
-            footerForm.style.display = "none";
-            bgvideomainForm.style.display = "none";
-        }
-    }
-    </script>
-    <script>
-    // Function to show the main division and hide the registration form
-    function showMainDivision() {
-        var registrationForm = document.getElementById("registration-form");
-        var bgvideomainForm = document.getElementById("bgvideo_main");
-        var main = document.getElementById("main");
-        var contactForm = document.getElementById("contact");
-        var footerForm = document.getElementById("footer");
-        registrationForm.style.display = "none";
-        contactForm.style.display = "none";
-        footerForm.style.display = "none";
-        main.style.display = "block";
-        bgvideomainForm.style.display = "none";
-    }
-    // Function to link to Mavericks tab
-    function NewTab() {
-        window.open(
-            "http://escapesanywhere.com/", "_blank");
-    }
-    // Function to show/hide the Contact Section and open the main division
-    function toggleContactForm() {
-        var contactForm = document.getElementById("contact");
-        var bgvideomainForm = document.getElementById("bgvideo_main");
-        var main = document.getElementById("main");
-        var registrationForm = document.getElementById("registration-form");
-        var footerForm = document.getElementById("footer");
-        if (contactForm.style.display === "block") {
-            registrationForm.style.display = "none";
-            main.style.display = "block";
-            contactForm.style.display = "none";
-            footer.style.display = "none";
-            bgvideomainForm.style.display = "none";
-        } else {
-            contactForm.style.display = "block";
-            main.style.display = "none";
-            registrationForm.style.display = "none";
-            footerForm.style.display = "block";
-            bgvideomainForm.style.display = "none";
-        }
-    }
-    </script>
-</body>
-
+            <!-- Add more image slides as needed -->
+         </div>
+         <div class="slider">
+            <div class="slide">
+               <video autoplay muted loop>
+                  <source src="homepagevideos/video1.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+               </video>
+               <div class="overlay">
+                  <div class="overlay-content">
+                     <p>Additional Content for Video 1</p>
+                     <span class="close-button" onclick="closeOverlay(this)">×</span>
+                  </div>
+               </div>
+            </div>
+            <!-- Add more video slides as needed -->
+         </div>
+      </div>
+      <!-- Blog Section -->
+      <div class="w3-padding-large w3-content w3-white w3-text-black" id="blog" style="display: none; margin-left: 300px;">
+         <div id="blog-form">
+            <form id="submit-blog-form">
+               <div>
+                  <label for="blog-title">Blog Title:</label><br>
+                  <input type="text" id="blog-title" required>
+               </div>
+               <div class="featured-image">
+                  <label for="blog-image">Featured Image:</label><br>
+                  <input type="file" id="blog-image" accept="image/*" required>
+               </div>
+               <div class="article-section">
+                  <label for="blog-introduction">Introduction:</label><br>
+                  <textarea id="blog-introduction" required></textarea>
+               </div>
+               <div class="article-section">
+                  <label for="blog-experience">Experience:</label><br>
+                  <textarea id="blog-experience" required></textarea>
+               </div>
+               <div class="article-section">
+                  <label for="blog-tips">Tips:</label><br>
+                  <textarea id="blog-tips" required></textarea>
+               </div>
+               <div class="article-section">
+                  <label for="blog-conclusion">Conclusion:</label><br>
+                  <textarea id="blog-conclusion" required></textarea>
+               </div>
+               <button class="w3-button w3-grey w3-padding-large" type="submit" id="submit-blog-button">
+               <i class="fa fa-paper-plane"></i> SUBMIT BLOG
+               </button>
+            </form>
+         </div>
+      </div>
+      <!-- HTML code for submitted blog overlay -->
+      <div id="submitted-blog-overlay" style="display: none;margin-left:300px;">
+         <main>
+            <article>
+               <div>
+                  <h1 style="text-align: center;">Your Blog Name</h1>
+                  <h1 style="text-align: center;">By Author Name</h1>
+               </div>
+               <div class="featured-image">
+                  <img src="homepageimages/mountain_picture.jpg" alt="Featured Image">
+               </div>
+               <section class="article-section">
+                  <h1>Introduction</h1>
+                  <h1>Your captivating introduction goes here.</h1>
+               </section>
+               <section class="article-section">
+                  <h1>Experience</h1>
+                  <h1>Content for the experience section.</h1>
+               </section>
+               <section class="article-section">
+                  <h1>Tips</h1>
+                  <h1>Content for the tips section.</h1>
+               </section>
+               <section class="article-section">
+                  <h1>
+                  Conclusion</p>
+                  <h1>Content for the conslusion section.</h1>
+               </section>
+               <!-- Add more sections as needed -->
+               <div style="text-align: center;">
+                  <h1>&copy; 2023 Your Blog Name. All rights reserved.</h1>
+               </div>
+            </article>
+         </main>
+      </div>
+      <!-- Contact Section -->
+      <div class="w3-padding-large w3-content w3-white w3-text-black" id="contact" style="display: none;">
+         <h2 class="w3-text-black">Contact Us</h2>
+         <hr style="width:200px" class="w3-opacity">
+         <div class="w3-section">
+            <h2><i class="fa fa-map-marker fa-fw w3-text-black w3-xxlarge w3-margin-right"></i> Chicago, US</h2>
+            <h2><i class="fa fa-phone fa-fw w3-text-black w3-xxlarge w3-margin-right"></i> Phone: +00 151515</h2>
+            <h2><i class="fa fa-envelope fa-fw w3-text-black w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</h2>
+         </div>
+         <br>
+         <h2Let's get in touch. Send me a message:</h2>
+         <form action="/action_page.php" target="_blank">
+            <h2><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></h2>
+            <h2><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></h2>
+            <h2><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></h2>
+            <h2><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></h2>
+            <h2>
+               <button class="w3-button w3-grey w3-padding-large" type="submit">
+               <i class="fa fa-paper-plane"></i> SEND MESSAGE
+               </button>
+            </h2>
+         </form>
+         <!-- End Contact Section -->
+      </div>
+      <!-- Footer -->
+      <footer class="w3-content w3-padding-large w3-white w3-xlarge" id="footer" style="display: none;">
+         <i class="fa-brands fa-facebook fa-fade w3-hover-opacity"></i>
+         <i class="fa-brands fa-instagram fa-fade w3-hover-opacity"></i>
+         <i class="fa-brands fa-snapchat fa-fade w3-hover-opacity"></i>
+         <i class="fa-brands fa-pinterest-p fa-fade w3-hover-opacity"></i>
+         <i class="fa-brands fa-twitter fa-fade w3-hover-opacity"></i>
+         <i class="fa-brands fa-linkedin fa-fade w3-hover-opacity"></i>
+         <h2 class="w3-medium">Powered by <a href="https://gcis5140.github.io/TheTravelTalesProject/" target="_blank" class="w3-hover-text-green">The Travel Tales</a></h2>
+         <!-- End footer -->
+      </footer>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+      <script src="/scripts.js"></script>	
+   </body>
 </html>
