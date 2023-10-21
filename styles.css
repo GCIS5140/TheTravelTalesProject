@@ -175,6 +175,7 @@
          }
          .article-section {
          margin: 20px 0;
+         font-weight: bold;
          }
          textarea {
          width: 100%;
