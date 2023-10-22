@@ -52,12 +52,8 @@
          blogSection.style.display = 'none'; // Hide the blog section
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          findSection.style.display = 'none'; // Hide the find companion section
-         // Toggle the display property of the login container
-         if (loginContainer.style.display === 'none') {
          loginContainer.style.display = 'block';
-         } else {
-         videoContainer.style.display = 'block';
-         }
+         // Toggle the display property of the login container
          });
          
          ViewBlogs.addEventListener('click', () => {
