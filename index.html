@@ -228,6 +228,138 @@
             </article>
          </main>
       </div>
+      <!-- Find Companion Section -->
+      <div class="w3-padding-large w3-content w3-white w3-text-black" id="find" style="display: none; margin-left: 300px;">
+    <div class="search-container">
+        <h1>Find Travel Companion</h1>
+		<label for="place" class="input-label" style="text-align: left;">Enter Place:</label>
+        <input type="text" id="place" placeholder="Enter Place" style="width: 20px;">
+		<label for="date" class="input-label" style="text-align: left;">Select Date:</label>
+        <input type="date" id="date" placeholder="Select Date"> 
+		<label for="days" class="input-label" style="text-align: left;">Enter +/- Days:</label>
+		<input type="number" id="days" placeholder="Enter +/- Days">
+        <button id="search-button">Search</button><br>
+    </div>
+    <div class="results-container" id="results">
+        <!-- Results will be displayed here -->
+    <h2>Search Results</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th>Interests</th>
+                <th>Connect</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Results will be displayed here -->
+        </tbody>
+    </table>		
+    </div>
+
+<div class="hidden-results" style="display: none;">
+        <!-- Hidden div containing your travel companion data -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Interests</th>
+                    <th>Connect</th>
+					<th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Paris, France</td>
+                    <td>2023-10-25</td>
+                    <td>Hiking, Photography</td>
+                    <td><button class="connect-button" onclick="connectClicked(this)"><i class="fas fa-user-plus"></i> Connect</button></td>
+					<td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>New York, USA</td>
+                    <td>2023-10-22</td>
+                    <td>Food, Museums</td>
+                    <td><button class="connect-button" onclick="connectClicked(this)"><i class="fas fa-user-plus"></i> Connect</button></td>
+					<td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Robert</td>
+                    <td>Rome, Italy</td>
+                    <td>2023-10-28</td>
+                    <td>Sightseeing, History</td>
+                    <td><button class="connect-button" onclick="connectClicked(this)"><i class="fas fa-user-plus"></i> Connect</button></td>
+					<td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Lisa</td>
+                    <td>Sydney, Australia</td>
+                    <td>2023-11-01</td>
+                    <td>Beaches, Surfing</td>
+                    <td><button class="connect-button" onclick="connectClicked(this)"><i class="fas fa-user-plus"></i> Connect</button></td>
+					<td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>David</td>
+                    <td>Tokyo, Japan</td>
+                    <td>2023-10-20</td>
+                    <td>Culture, Cuisine</td>
+                    <td><button class="connect-button" onclick="connectClicked(this)"><i class="fas fa-user-plus"></i> Connect</button></td>
+					<td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Linda</td>
+                    <td>Mexico City, Mexico</td>
+                    <td>2023-10-30</td>
+                    <td>Art, History</td>
+                    <td><button class="connect-button" onclick="connectClicked(this)"><i class="fas fa-user-plus"></i> Connect</button></td>
+					<td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>William</td>
+                    <td>London, UK</td>
+                    <td>2023-10-26</td>
+                    <td>Theater, Shopping</td>
+                    <td><button class="connect-button" onclick="connectClicked(this)"><i class="fas fa-user-plus"></i> Connect</button></td>
+					<td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Susan</td>
+                    <td>San Francisco, USA</td>
+                    <td>2023-10-23</td>
+                    <td>Tech, Nature</td>
+                    <td><button class="connect-button" onclick="connectClicked(this)"><i class="fas fa-user-plus"></i> Connect</button></td>
+					<td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Michael</td>
+                    <td>Sydney, Australia</td>
+                    <td>2023-10-27</td>
+                    <td>Hiking, Beaches</td>
+                    <td><button class="connect-button" onclick="connectClicked(this)"><i class="fas fa-user-plus"></i> Connect</button></td>
+					<td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Sarah</td>
+                    <td>Los Angeles, USA</td>
+                    <td>2023-10-29</td>
+                    <td>Movies, Nightlife</td>
+                    <td><button class="connect-button" onclick="connectClicked(this)"><i class="fas fa-user-plus"></i> Connect</button></td>
+					<td><input type="checkbox"></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+    <button id="multiconnect-button" onclick="multiconnectClicked()"><i class="fas fa-users"></i> Multiconnect</button>
+      </div>
       <!-- Contact Section -->
       <div class="w3-padding-large w3-content w3-white w3-text-black" id="contact" style="display: none;">
          <h2 class="w3-text-black">Contact Us</h2>
