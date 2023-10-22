@@ -15,7 +15,9 @@
          const blogLink = document.querySelector('.fas.fa-pen-fancy');
          const blogSection = document.getElementById('blog');
          const submittedBlogOverlay = document.getElementById('submitted-blog-overlay'); // Reference to the submitted blog overlay	
-         
+         // Get the find companion container
+         const findLink = document.querySelector('.fas.fa-users');
+         const findSection = document.getElementById('find');
          // Show the video on first load
          videoContainer.style.display = 'block';
          
@@ -27,8 +29,19 @@
          blogSection.style.display = 'none'; // Hide the blog section
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
+         findSection.style.display = 'none'; // Hide the find companion section
          });
-         
+
+         findLink.addEventListener('click', () => {
+         videoContainer.style.display = 'none'; // Show the video
+         slickSliderContainer.style.display = 'none'; // Hide the slick slider
+         contactSection.style.display = 'none'; // Hide the contact section
+         footer.style.display = 'none'; // Hide the footer
+         blogSection.style.display = 'none'; // Hide the blog section
+         submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
+         loginContainer.style.display = 'none';
+         findSection.style.display = 'block'; // Hide the find companion section
+         });
          
          // Add a click event listener to the login link
          loginLink.addEventListener('click', () => {
@@ -38,6 +51,7 @@
          footer.style.display = 'none'; // Hide the footer
          blogSection.style.display = 'none'; // Hide the blog section
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
+         findSection.style.display = 'none'; // Hide the find companion section
          // Toggle the display property of the login container
          if (loginContainer.style.display === 'none') {
          loginContainer.style.display = 'block';
@@ -52,6 +66,7 @@
          contactSection.style.display = 'none'; // Hide the contact section
          footer.style.display = 'none'; // Hide the footer
          blogSection.style.display = 'none'; // Hide the blog section
+         findSection.style.display = 'none'; // Hide the find companion section
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
          $('.slider').slick({
@@ -70,6 +85,7 @@
          contactSection.style.display = 'block';
          footer.style.display = 'block';
          blogSection.style.display = 'none';
+         findSection.style.display = 'none'; // Hide the find companion section
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
          });
@@ -79,6 +95,7 @@
          slickSliderContainer.style.display = 'none';
          contactSection.style.display = 'none';
          footer.style.display = 'none';
+         findSection.style.display = 'none'; // Hide the find companion section
          blogSection.style.display = 'block';
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
@@ -96,6 +113,7 @@
          contactSection.style.display = 'none';
          footer.style.display = 'none';
          blogSection.style.display = 'none';
+         findSection.style.display = 'none'; // Hide the find companion section
          submittedBlogOverlay.style.display = 'block'; // Show the submitted blog overlay
          loginContainer.style.display = 'none';
          });
