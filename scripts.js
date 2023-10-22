@@ -9,7 +9,8 @@
          const slickSliderContainer = document.getElementById('slick-slider-container');
          const ViewBlogs = document.querySelector('.fas.fa-blog');
          const contactLink = document.querySelector('.fas.fa-envelope');
-         const planLink = document.querySelector('.fas.fa-calendar');		
+         const planLink = document.querySelector('.fas.fa-calendar');
+         const resourceLink = document.querySelector('.fas.fa-bookmark');
          const contactSection = document.getElementById('contact'); // Get the contact section
          const footer = document.getElementById('footer'); // Get the footer
          const blogLink = document.querySelector('.fas.fa-pen-fancy');
@@ -116,6 +117,10 @@
          
            planLink.addEventListener('click', () => {
              window.open("http://escapesanywhere.com/", "_blank");
+         });
+
+           resourceLink.addEventListener('click', () => {
+             window.open("https://github.com/GCIS5140/TheTravelTalesProject/", "_blank");
          });
          
          const loginButton = document.getElementById('login-button');
