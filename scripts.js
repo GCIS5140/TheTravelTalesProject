@@ -15,7 +15,8 @@
          const blogLink = document.querySelector('.fas.fa-pen-fancy');
          const blogSection = document.getElementById('blog');
          const submittedBlogOverlay = document.getElementById('submitted-blog-overlay'); // Reference to the submitted blog overlay	
-         
+	const findcompanionLink = document.querySelector('.fas.fa-users');
+	const findCompanion = document.getElementById('find_companion');         
          // Show the video on first load
          videoContainer.style.display = 'block';
          
@@ -27,6 +28,7 @@
          blogSection.style.display = 'none'; // Hide the blog section
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
+         findCompanion.style.display = 'none';
          });
          
          
@@ -38,12 +40,8 @@
          footer.style.display = 'none'; // Hide the footer
          blogSection.style.display = 'none'; // Hide the blog section
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
-         // Toggle the display property of the login container
-         if (loginContainer.style.display === 'none') {
+         findCompanion.style.display = 'none';
          loginContainer.style.display = 'block';
-         } else {
-         videoContainer.style.display = 'block';
-         }
          });
          
          ViewBlogs.addEventListener('click', () => {
@@ -54,6 +52,7 @@
          blogSection.style.display = 'none'; // Hide the blog section
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
+         findCompanion.style.display = 'none';
          $('.slider').slick({
                  dots: true,
                  infinite: true,
@@ -63,7 +62,16 @@
                  // Add more options as needed
              });
          });
-         
+         findcompanionLink.addEventListener('click', () => {
+         videoContainer.style.display = 'none'; // Show the video
+         slickSliderContainer.style.display = 'none'; // Hide the slick slider
+         contactSection.style.display = 'none'; // Hide the contact section
+         footer.style.display = 'none'; // Hide the footer
+         blogSection.style.display = 'none'; // Hide the blog section
+         submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
+         loginContainer.style.display = 'none';
+         findCompanion.style.display = 'block';
+         });         
          contactLink.addEventListener('click', () => {
          videoContainer.style.display = 'none';
          slickSliderContainer.style.display = 'none';
@@ -72,6 +80,7 @@
          blogSection.style.display = 'none';
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
+         findCompanion.style.display = 'none';
          });
          
          blogLink.addEventListener('click', () => {
@@ -82,6 +91,7 @@
          blogSection.style.display = 'block';
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
+         findCompanion.style.display = 'none';
          });
          
          // Handle the submission of the blog form
@@ -98,6 +108,7 @@
          blogSection.style.display = 'none';
          submittedBlogOverlay.style.display = 'block'; // Show the submitted blog overlay
          loginContainer.style.display = 'none';
+         findCompanion.style.display = 'none';
          });
          
            planLink.addEventListener('click', () => {
@@ -139,3 +150,98 @@
                  window.location.href = 'https://gcis5140.github.io/TheTravelTalesProject/'; // Replace with your desired URL            
              }, 3000);
          };
+// Add an event listener for the search button
+document.getElementById("search-button").addEventListener("click", function() {
+    const place = document.getElementById("place").value.toLowerCase();
+    const date = document.getElementById("date").value;
+    const days = parseInt(document.getElementById("days").value);
+
+    // Check if both place and date are empty
+    if (place === "" && date === "" && isNaN(days)) {
+        // Set the default date to today's date
+        const today = new Date();
+        const defaultDate = today.toISOString().split('T')[0];
+        document.getElementById("date").value = defaultDate;
+
+        // Set the default number of days to 5
+        const defaultDays = 5;
+        document.getElementById("days").value = defaultDays;
+
+        displayAllResults(); // Display all results
+        return;
+    }
+
+    // Continue with the search based on user input
+    const selectedDate = new Date(date);
+    const fromDate = new Date(selectedDate);
+    fromDate.setDate(selectedDate.getDate() - days);
+
+    const toDate = new Date(selectedDate);
+    toDate.setDate(selectedDate.getDate() + days);
+
+    const hiddenResultsContainer = document.querySelector(".hidden-results tbody");
+
+    // Get all the rows from the hidden results
+    const rows = hiddenResultsContainer.querySelectorAll("tr");
+
+    // Clear the current results
+    const resultsContainer = document.getElementById("results");
+    resultsContainer.innerHTML = '';
+
+    // Filter the rows based on the input values and clone them
+    rows.forEach(row => {
+        const rowData = row.textContent.toLowerCase();
+        const rowDate = new Date(row.querySelector("td:nth-child(3)").textContent);
+
+        if ((place === "" || rowData.includes(place)) && rowDate >= fromDate && rowDate <= toDate) {
+            const clonedRow = row.cloneNode(true); // Clone the row
+            resultsContainer.appendChild(clonedRow); // Append the cloned row to the results container
+        }
+    });
+
+    // Show/hide the results container based on the number of results
+    if (resultsContainer.children.length > 0) {
+        resultsContainer.style.display = "block";
+    } else {
+        resultsContainer.style.display = "none";
+    }
+});
+
+// Prevent form submission on button click
+document.getElementById("search-button").addEventListener("click", function(e) {
+    e.preventDefault();
+});
+
+function displayAllResults() {
+    // If both place and date are empty, display all results
+    const hiddenResultsContainer = document.querySelector(".hidden-results tbody");
+    const rows = hiddenResultsContainer.querySelectorAll("tr");
+
+    const resultsContainer = document.getElementById("results");
+    resultsContainer.innerHTML = '';
+
+    rows.forEach(row => {
+        const clonedRow = row.cloneNode(true);
+        resultsContainer.appendChild(clonedRow);
+    });
+
+    resultsContainer.style.display = "block";
+}
+        function connectClicked(button) {
+            const row = button.parentNode.parentNode;
+            const name = row.querySelector("td:nth-child(1)").textContent;
+            alert(`Email Message Sent to ${name}!!! Happy Travelling!!!`);
+        }
+
+        function multiconnectClicked() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            if (checkboxes.length > 0) {
+                const names = Array.from(checkboxes).map(checkbox => {
+                    const row = checkbox.parentNode.parentNode;
+                    return row.querySelector("td:nth-child(1)").textContent;
+                });
+                alert(`Email Message Sent to ${names.join(', ')}!!! Happy Travelling!!!`);
+            } else {
+                alert("No users selected for Multiconnect.");
+            }
+        };
