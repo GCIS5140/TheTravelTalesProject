@@ -15,6 +15,8 @@
          const footer = document.getElementById('footer'); // Get the footer
          const blogLink = document.querySelector('.fas.fa-pen-fancy');
          const blogSection = document.getElementById('blog');
+         const careersLink = document.querySelector('.fas.fa-laptop-file');
+         const careersSection = document.getElementById('writingcareers');
          const submittedBlogOverlay = document.getElementById('submitted-blog-overlay'); // Reference to the submitted blog overlay	
          // Get the find companion container
          const findLink = document.querySelector('.fas.fa-users');
@@ -31,6 +33,7 @@
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
          findSection.style.display = 'none'; // Hide the find companion section
+         careersSection.style.display = 'none'; // Hide the Content Careers section
          });
 
          findLink.addEventListener('click', () => {
@@ -42,6 +45,7 @@
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
          findSection.style.display = 'block'; // Hide the find companion section
+         careersSection.style.display = 'none'; // Hide the Content Careers section                  
          });
          
          // Add a click event listener to the login link
@@ -54,6 +58,7 @@
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          findSection.style.display = 'none'; // Hide the find companion section
          loginContainer.style.display = 'block';
+         careersSection.style.display = 'none'; // Hide the Content Careers section                  
          // Toggle the display property of the login container
          });
          
@@ -66,6 +71,7 @@
          findSection.style.display = 'none'; // Hide the find companion section
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
+         careersSection.style.display = 'none'; // Hide the Content Careers section                  
          $('.slider').slick({
                  dots: true,
                  infinite: true,
@@ -85,6 +91,7 @@
          findSection.style.display = 'none'; // Hide the find companion section
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
+         careersSection.style.display = 'none'; // Hide the Content Careers section                  
          });
          
          blogLink.addEventListener('click', () => {
@@ -96,6 +103,7 @@
          blogSection.style.display = 'block';
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
+         careersSection.style.display = 'none'; // Hide the Content Careers section                  
          });
          
          // Handle the submission of the blog form
@@ -113,6 +121,7 @@
          findSection.style.display = 'none'; // Hide the find companion section
          submittedBlogOverlay.style.display = 'block'; // Show the submitted blog overlay
          loginContainer.style.display = 'none';
+         careersSection.style.display = 'none'; // Hide the Content Careers section                  
          });
          
            planLink.addEventListener('click', () => {
