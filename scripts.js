@@ -291,6 +291,9 @@ function displayAllResults() {
       // Here you can add your logic to send the form data to the server
       // For demonstration purposes, we'll just show an alert:
       alert("Message sent successfully!! You will hear from us shortly!! Happy Travelling!!");
-      contactSection.style.display = 'none';
-      videoContainer.style.display = 'block'; // Show the video
+             setTimeout(() => {
+                 // Redirect after 3 seconds
+         redirectDiv.style.display = 'block';
+                 window.location.href = 'https://gcis5140.github.io/TheTravelTalesProject/'; // Replace with your desired URL            
+             }, 3000);             
     });
