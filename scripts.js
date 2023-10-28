@@ -45,7 +45,7 @@
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
          findSection.style.display = 'block'; // Hide the find companion section
-         //careersSection.style.display = 'none'; // Hide the Content Careers section                  
+         // careersSection.style.display = 'none'; // Hide the Content Careers section                  
          });
          
          // Add a click event listener to the login link
