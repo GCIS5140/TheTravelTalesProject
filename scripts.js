@@ -93,7 +93,17 @@
          loginContainer.style.display = 'none';
          careersSection.style.display = 'none'; // Hide the Content Careers section                  
          });
-         
+         careersLink.addEventListener('click', () => {
+         videoContainer.style.display = 'none';
+         slickSliderContainer.style.display = 'none';
+         contactSection.style.display = 'none';
+         footer.style.display = 'none';
+         findSection.style.display = 'none'; // Hide the find companion section
+         blogSection.style.display = 'none';
+         submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
+         loginContainer.style.display = 'none';
+         careersSection.style.display = 'block'; // Show the Content Careers section                  
+         });         
          blogLink.addEventListener('click', () => {
          videoContainer.style.display = 'none';
          slickSliderContainer.style.display = 'none';
