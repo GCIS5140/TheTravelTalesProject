@@ -111,8 +111,10 @@
          // Here you can add your logic to send the form data to the server
          // For demonstration purposes, we'll just show an alert:
          alert("Message sent successfully!! You will hear from us shortly!! Happy Travelling!!");
-         careersSection.style.display = 'none'; // Hide the Content Careers section 
-         videoContainer.style.display = 'block'; // Show the video
+             setTimeout(() => {
+                 // Redirect after 3 seconds
+                 window.location.href = 'https://gcis5140.github.io/TheTravelTalesProject/'; // Replace with your desired URL            
+             }, 3000);   
          });
 
          blogLink.addEventListener('click', () => {
@@ -293,7 +295,6 @@ function displayAllResults() {
       alert("Message sent successfully!! You will hear from us shortly!! Happy Travelling!!");
              setTimeout(() => {
                  // Redirect after 3 seconds
-         redirectDiv.style.display = 'block';
                  window.location.href = 'https://gcis5140.github.io/TheTravelTalesProject/'; // Replace with your desired URL            
              }, 3000);             
     });
