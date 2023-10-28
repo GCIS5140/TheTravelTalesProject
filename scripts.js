@@ -103,7 +103,17 @@
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
          careersSection.style.display = 'block'; // Show the Content Careers section                  
-         });         
+         });   
+         // Handle the submission of the careers form
+         const submitContentFormButton = document.getElementById("submit-contentcareers-button");
+         submitContentFormButton.addEventListener('click', (e) => {
+         e.preventDefault(); // Prevent the form submission
+         // Here you can add your logic to send the form data to the server
+         // For demonstration purposes, we'll just show an alert:
+         alert("Message sent successfully!! You will hear from us shortly!! Happy Travelling!!");
+         careersSection.style.display = 'none'; // Hide the Content Careers section                  
+         });
+
          blogLink.addEventListener('click', () => {
          videoContainer.style.display = 'none';
          slickSliderContainer.style.display = 'none';
