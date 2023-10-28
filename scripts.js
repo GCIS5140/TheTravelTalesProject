@@ -108,14 +108,14 @@
          const submitContentFormButton = document.getElementById("submit-contentcareers-button");
          submitContentFormButton.addEventListener('click', (e) => {
          e.preventDefault(); // Prevent the form submission
-         Here you can add your logic to send the form data to the server
-         For demonstration purposes, we'll just show an alert:
+         // Here you can add your logic to send the form data to the server
+         // For demonstration purposes, we'll just show an alert:
          alert("Message sent successfully!! You will hear from us shortly!! Happy Travelling!!");
              setTimeout(() => {
                  // Redirect after 3 seconds
                  window.location.href = 'https://gcis5140.github.io/TheTravelTalesProject/'; // Replace with your desired URL            
              }, 3000);   
-          });
+         });
 
          blogLink.addEventListener('click', () => {
          videoContainer.style.display = 'none';
