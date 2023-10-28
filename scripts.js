@@ -111,7 +111,8 @@
          // Here you can add your logic to send the form data to the server
          // For demonstration purposes, we'll just show an alert:
          alert("Message sent successfully!! You will hear from us shortly!! Happy Travelling!!");
-         careersSection.style.display = 'none'; // Hide the Content Careers section                  
+         careersSection.style.display = 'none'; // Hide the Content Careers section 
+         videoContainer.style.display = 'block'; // Show the video
          });
 
          blogLink.addEventListener('click', () => {
@@ -290,4 +291,6 @@ function displayAllResults() {
       // Here you can add your logic to send the form data to the server
       // For demonstration purposes, we'll just show an alert:
       alert("Message sent successfully!! You will hear from us shortly!! Happy Travelling!!");
+      contactSection.style.display = 'none';
+      videoContainer.style.display = 'block'; // Show the video
     });
