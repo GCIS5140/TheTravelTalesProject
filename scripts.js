@@ -254,3 +254,11 @@ function displayAllResults() {
                 alert("No users selected for Multiconnect.");
             }
         };
+
+    document.getElementById("contact_form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Here you can add your logic to send the form data to the server
+      // For demonstration purposes, we'll just show an alert:
+      alert("Message sent successfully!! You will hear from us shortly!! Happy Travelling!!");
+    });
