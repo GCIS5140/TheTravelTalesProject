@@ -15,7 +15,7 @@
          const footer = document.getElementById('footer'); // Get the footer
          const blogLink = document.querySelector('.fas.fa-pen-fancy');
          const blogSection = document.getElementById('blog');
-         const careersLink = document.querySelector('.fas.fa-laptop-file');
+         //const careersLink = document.querySelector('.fas.fa-laptop-file');
          const careersSection = document.getElementById('writingcareers');
          const submittedBlogOverlay = document.getElementById('submitted-blog-overlay'); // Reference to the submitted blog overlay	
          // Get the find companion container
