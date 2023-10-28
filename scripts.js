@@ -234,7 +234,7 @@ document.getElementById("search-button").addEventListener("click", function() {
         const rowData = row.textContent.toLowerCase();
         const rowDate = new Date(row.querySelector("td:nth-child(3)").textContent);
 
-        if ((place === "" || rowData.includes(place)) && rowDate >= fromDate && rowDate <= toDate) {
+        if ((place === "" || rowData.includes(place)) || rowDate >= fromDate || rowDate <= toDate) {
             const clonedRow = row.cloneNode(true); // Clone the row
             resultsContainer.appendChild(clonedRow); // Append the cloned row to the results container
         }
