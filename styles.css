@@ -163,7 +163,7 @@
          padding: 10px; /* Header padding */
          margin: -20px -20px 20px -20px; /* Negative margin to overlap with article */
          }
-         article h1,h2 {
+         article h2 {
          text-align: left;
          font-family: "Over the Rainbow"; font-size: 30px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px;
          }
