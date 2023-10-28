@@ -82,7 +82,7 @@
              });
          });
          
-         contactLink.addEventListener('click', () => {
+         /*contactLink.addEventListener('click', () => {
          videoContainer.style.display = 'none';
          slickSliderContainer.style.display = 'none';
          contactSection.style.display = 'block';
@@ -103,7 +103,7 @@
          submittedBlogOverlay.style.display = 'none'; // Hide the submitted blog overlay
          loginContainer.style.display = 'none';
          careersSection.style.display = 'block'; // Show the Content Careers section                  
-         });   
+         });*/   
          // Handle the submission of the careers form
          const submitContentFormButton = document.getElementById("submit-contentcareers-button");
          submitContentFormButton.addEventListener('click', (e) => {
