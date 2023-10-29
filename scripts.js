@@ -148,7 +148,7 @@
          });
          
            planLink.addEventListener('click', () => {
-             window.open("http://escapesanywhere.com/", "_blank");
+             window.open("http://escapesanywhere.com/contact/", "_blank");
          });
 
            resourceLink.addEventListener('click', () => {
