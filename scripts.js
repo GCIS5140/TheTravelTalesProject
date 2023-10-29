@@ -234,7 +234,7 @@ document.getElementById("search-button").addEventListener("click", function() {
     performSearch(place,fromDate,toDate); // Perform Search
 });
 
-function performSearch(finalplace,startDate,endDate) {
+function performSearch(place,fromDate,toDate) {
     const hiddenResultsContainer = document.querySelector(".hidden-results tbody");
 
     // Get all the rows from the hidden results
@@ -249,7 +249,7 @@ function performSearch(finalplace,startDate,endDate) {
         const rowData = row.textContent.toLowerCase();
         const rowDate = new Date(row.querySelector("td:nth-child(3)").textContent);
 
-        if ((finalplace === "" || rowData.includes(finalplace)) && rowDate >= startDate && rowDate <= endDate) {
+        if ((place === "" || rowData.includes(place)) && rowDate >= fromDate && rowDate <= toDate) {
             const clonedRow = row.cloneNode(true); // Clone the row
             resultsContainer.appendChild(clonedRow); // Append the cloned row to the results container
         }
