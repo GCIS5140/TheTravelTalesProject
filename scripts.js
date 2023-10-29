@@ -223,10 +223,7 @@ document.getElementById("search-button").addEventListener("click", function() {
         if (date === "") {
                document.getElementById("date").value = defaultDate;
               }
-    }
-displaySelectedResults(); // Display Selected Results
-});
-function displaySelectedResults() {
+    }         
     // Continue with the search based on user input
     const selectedDate = new Date(date);
     const fromDate = new Date(selectedDate);
@@ -260,8 +257,9 @@ function displaySelectedResults() {
         resultsContainer.style.display = "block";
     } else {
         resultsContainer.style.display = "none";
-    }         
-};
+    }
+});
+
 // Prevent form submission on button click
 document.getElementById("search-button").addEventListener("click", function(e) {
     e.preventDefault();
