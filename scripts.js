@@ -196,22 +196,34 @@ document.getElementById("search-button").addEventListener("click", function() {
     const place = document.getElementById("place").value.toLowerCase();
     const date = document.getElementById("date").value;
     const days = parseInt(document.getElementById("days").value);
-
+    // Set the default number of days to 5
+    const defaultDays = 5;
+    const today = new Date();
+    const defaultDate = today.toISOString().split('T')[0];         
     // Check if both place and date are empty
     if (place === "" && date === "" && isNaN(days)) {
         // Set the default date to today's date
-        const today = new Date();
-        const defaultDate = today.toISOString().split('T')[0];
         document.getElementById("date").value = defaultDate;
-
-        // Set the default number of days to 5
-        const defaultDays = 5;
         document.getElementById("days").value = defaultDays;
-
         displayAllResults(); // Display all results
         return;
     }
-
+    // Check if date is empty
+    if (date === "") {
+        // Set the default date to today's date
+        document.getElementById("date").value = defaultDate;
+        if (isNaN(days)) {
+               document.getElementById("days").value = defaultDays;
+              }
+    }
+    // Check if days is empty
+    if (isNaN(days)) {
+        // Set the default date to today's date
+        document.getElementById("days").value = defaultDays;
+        if (date === "") {
+               document.getElementById("date").value = defaultDate;
+              }
+    }         
     // Continue with the search based on user input
     const selectedDate = new Date(date);
     const fromDate = new Date(selectedDate);
@@ -234,7 +246,7 @@ document.getElementById("search-button").addEventListener("click", function() {
         const rowData = row.textContent.toLowerCase();
         const rowDate = new Date(row.querySelector("td:nth-child(3)").textContent);
 
-        if ((place === "" || rowData.includes(place)) || rowDate >= fromDate || rowDate <= toDate) {
+        if ((place === "" || rowData.includes(place)) && rowDate >= fromDate && rowDate <= toDate) {
             const clonedRow = row.cloneNode(true); // Clone the row
             resultsContainer.appendChild(clonedRow); // Append the cloned row to the results container
         }
