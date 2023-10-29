@@ -231,7 +231,10 @@ document.getElementById("search-button").addEventListener("click", function() {
 
     const toDate = new Date(selectedDate);
     toDate.setDate(selectedDate.getDate() + days);
+    performSearch(place,fromDate,toDate); // Perform Search
+});
 
+function performSearch(finalplace,startDate,endDate) {
     const hiddenResultsContainer = document.querySelector(".hidden-results tbody");
 
     // Get all the rows from the hidden results
@@ -246,7 +249,7 @@ document.getElementById("search-button").addEventListener("click", function() {
         const rowData = row.textContent.toLowerCase();
         const rowDate = new Date(row.querySelector("td:nth-child(3)").textContent);
 
-        if ((place === "" || rowData.includes(place)) && rowDate >= fromDate && rowDate <= toDate) {
+        if ((finalplace === "" || rowData.includes(finalplace)) && rowDate >= startDate && rowDate <= endDate) {
             const clonedRow = row.cloneNode(true); // Clone the row
             resultsContainer.appendChild(clonedRow); // Append the cloned row to the results container
         }
@@ -257,8 +260,8 @@ document.getElementById("search-button").addEventListener("click", function() {
         resultsContainer.style.display = "block";
     } else {
         resultsContainer.style.display = "none";
-    }
-});
+    }         
+};
 
 // Prevent form submission on button click
 document.getElementById("search-button").addEventListener("click", function(e) {
